@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { EventsTable } from './Components/EventsTable/EventsTable';
 import { CheckboxControlPanel } from './Components/CheckboxControlPanel';
+import { EventsTable } from './Components/EventsTable/EventsTable';
+import { PaginationControl } from './Components/PaginationControl';
 
 import './App.scss';
 
@@ -14,6 +15,7 @@ function App() {
       <main>
         <CheckboxControlPanel />
         <EventsTable />
+        <PaginationControl />
       </main>
     </div>
   );
