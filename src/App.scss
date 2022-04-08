@@ -4,9 +4,14 @@ body,
   height: 100%;
 }
 
-.page {
+.App {
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: top;
+}
+
+.App-header {
+  margin: 0 auto;
 }

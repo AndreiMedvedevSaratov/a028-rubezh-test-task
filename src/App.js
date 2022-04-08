@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CheckboxControlPanel } from './Components/CheckboxControlPanel';
+import CheckboxControlPanel from './Components/CheckboxControlPanel/CheckboxControlPanel';
 import { EventsTable } from './Components/EventsTable/EventsTable';
 import { PaginationControl } from './Components/PaginationControl';
 

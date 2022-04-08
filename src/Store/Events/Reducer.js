@@ -6,6 +6,15 @@ const initialState = {
     sortOptions: {
         field: "name",
         isDesc: false
+    },
+    checkboxControl: {
+        isStartTimeDateShow: true,
+        isEndTimeDateShow: true,
+        isDescriptionShow: true,
+        isDeviceShow: true,
+        isZoneOfDeviceShow: true,
+        isColorCodeShow: true,
+        isActionToDoShow: true,
     }
 };
 
