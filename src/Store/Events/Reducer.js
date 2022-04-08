@@ -15,7 +15,8 @@ const initialState = {
         isZoneOfDeviceShow: true,
         isColorCodeShow: true,
         isActionToDoShow: true,
-    }
+    },
+    currentPage: 1,
 };
 
 const reducerMapping = {

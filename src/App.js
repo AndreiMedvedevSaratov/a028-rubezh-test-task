@@ -2,7 +2,7 @@ import React from 'react';
 
 import CheckboxControlPanel from './Components/CheckboxControlPanel/CheckboxControlPanel';
 import { EventsTable } from './Components/EventsTable/EventsTable';
-import { PaginationControl } from './Components/PaginationControl';
+import PaginationControl from './Components/PaginationControl/PaginationControl';
 
 import './App.scss';
 
@@ -15,7 +15,12 @@ function App() {
       <main>
         <CheckboxControlPanel />
         <EventsTable />
-        <PaginationControl />
+        <PaginationControl
+          currentPage={1}
+          // onPageChanged={onPageChanged}
+          totalItemsCount={100}
+          pageSize={10}
+        />
       </main>
     </div>
   );
