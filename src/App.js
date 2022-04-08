@@ -14,7 +14,9 @@ function App() {
       </header>
       <main>
         <CheckboxControlPanel />
+        <hr></hr>
         <EventsTable />
+        <hr></hr>
         <PaginationControl
           currentPage={1}
           // onPageChanged={onPageChanged}
