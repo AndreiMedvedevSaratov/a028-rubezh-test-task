@@ -1,6 +1,6 @@
 // import { EventsDataService } from "../../Services/EventsData.service"
 
-import { eventActionTypes } from "./ActionTypes"
+import { eventsActionTypes } from "./ActionTypes"
 import { showSpinnerOverlayAction, hideSpinnerOverlayAction } from "../SpinnerOverlay";
 
 export const getEvents = () => {
@@ -12,12 +12,17 @@ export const getEvents = () => {
     };
 };
 
+export const applyFilter = filter => ({
+    type: eventsActionTypes.applyFilter,
+    payload: filter
+});
+
 export const applySorting = sortOptions => ({
-    type: eventActionTypes.applySorting,
+    type: eventsActionTypes.applySorting,
     payload: sortOptions
 });
 
-const getEventsAction = events => ({
-    type: eventActionTypes.getAll,
-    payload: events
-});
+// const getEventsAction = events => ({
+//     type: eventsActionTypes.getAll,
+//     payload: events
+// });

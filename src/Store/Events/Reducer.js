@@ -3,6 +3,7 @@ import { eventsActionTypes } from "./ActionTypes";
 const initialState = {
     list: Object.create(null),
     ids: [],
+    filter: '',
     sortOptions: {
         field: "name",
         isDesc: false
@@ -30,6 +31,8 @@ const reducerMapping = {
             ids: events.map(x => x.id)
         };
     },
+
+    [eventsActionTypes.applyFilter]: (state, filter) => ({ ...state, filter }),
 
     [eventsActionTypes.applySorting]: (state, sortOptions) => ({ ...state, sortOptions }),
 }
