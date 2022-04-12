@@ -3,4 +3,5 @@ export const eventsActionTypes = {
     applyFilter: 'EVENTS_APPLY_FILTER',
     applySorting: 'EVENTS_APPLY_SORTING',
     getEventsOnPageNumber: 'EVENTS_ON_PAGE_NUMBER',
+    setCurrentPage: 'SET_CURRENT_PAGE'
 }

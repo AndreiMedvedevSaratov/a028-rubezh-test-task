@@ -6,9 +6,16 @@
 	margin: 0 3px;
 	padding: 2px;
 	border: 1px solid grey;
+	cursor: pointer;
 }
 
 .pageNumber.selectedPage {
 	font-weight: bold;
 	border-color: black;
+	cursor: pointer;
+}
+
+.paginatorButton {
+	font-weight: bold;
+	cursor: pointer;
 }

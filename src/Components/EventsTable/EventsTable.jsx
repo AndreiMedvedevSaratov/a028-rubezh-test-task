@@ -13,9 +13,11 @@ export const EventsTable = () => {
 	const eventIds = useSelector((state) => filterEventIds(state));
 	const sortOptions = useSelector((state => state.events.sortOptions));
 	const columnsWidth = useSelector((state) => state.events.columnsWidth);
+	const currentPage = useSelector((state) => state.events.currentPage);
+
 
 	useEffect(() =>
-		dispatch(getEventsOnPageNumber(1)), [dispatch]
+		dispatch(getEventsOnPageNumber(currentPage)), [dispatch, currentPage]
 	);
 
 	const onSortClickFactory = useCallback((fieldName) => e => {

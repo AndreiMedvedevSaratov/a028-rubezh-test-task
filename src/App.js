@@ -14,14 +14,10 @@ function App() {
       </header>
       <main>
         <CheckboxControlPanel />
-        <hr></hr>
         <EventsTable />
-        <hr></hr>
         <PaginationControl
-          currentPage={1}
-          // onPageChanged={onPageChanged}
-          totalItemsCount={100}
-          pageSize={10}
+          totalItemsCount={1000000}
+          pageSize={20}
         />
       </main>
     </div>

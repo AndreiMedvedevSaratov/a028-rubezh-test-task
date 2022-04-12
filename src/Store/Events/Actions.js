@@ -41,3 +41,10 @@ const getEventsOnPageNumberAction = events => ({
     type: eventsActionTypes.getEventsOnPageNumber,
     payload: events
 });
+
+export const setCurrentPage = (currentPage) => {
+    return {
+        type: eventsActionTypes.setCurrentPage,
+        payload: currentPage
+    }
+}

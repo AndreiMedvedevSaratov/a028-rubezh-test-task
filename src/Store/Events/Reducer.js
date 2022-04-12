@@ -52,6 +52,13 @@ const reducerMapping = {
         };
     },
 
+    [eventsActionTypes.setCurrentPage]: (state, currentPage) => {
+        return {
+            ...state,
+            currentPage: currentPage
+        };
+    },
+
     [eventsActionTypes.applyFilter]: (state, filter) => ({ ...state, filter }),
 
     [eventsActionTypes.applySorting]: (state, sortOptions) => ({ ...state, sortOptions }),
