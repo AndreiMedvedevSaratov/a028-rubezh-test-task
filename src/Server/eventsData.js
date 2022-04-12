@@ -35,10 +35,10 @@ export function pageInfoGeneration(pageNumber) {
 		})
 	}
 
-	console.log(resultsArray);
+	// console.log(resultsArray);
 	return resultsArray;
 }
 
-export let eventsData = {
-	events: pageInfoGeneration(22),
-};
+// export let eventsData = {
+// 	events: pageInfoGeneration(22),
+// };

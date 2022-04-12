@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getEvents, filterEventIds, applySorting } from './../../Store/Events/';
+import { getEventsOnPageNumber, filterEventIds, applySorting } from './../../Store/Events/';
 
 import { EventRow } from './Components/EventRow/EventRow';
 
@@ -14,7 +14,7 @@ export const EventsTable = () => {
 	const sortOptions = useSelector((state => state.events.sortOptions));
 
 	useEffect(() =>
-		dispatch(getEvents()), [dispatch]
+		dispatch(getEventsOnPageNumber(1)), [dispatch]
 	);
 
 	const onSortClickFactory = useCallback((fieldName) => e => {

@@ -5,7 +5,7 @@ const initialState = {
     ids: [],
     filter: '',
     sortOptions: {
-        field: "name",
+        field: "startTimeDate",
         isDesc: false
     },
     checkboxControl: {
@@ -21,7 +21,18 @@ const initialState = {
 };
 
 const reducerMapping = {
-    [eventsActionTypes.getAll]: (state, events) => {
+    // [eventsActionTypes.getAll]: (state, events) => {
+    //     const list = Object.create(null);
+    //     events.forEach(event => list[event.id] = event);
+
+    //     return {
+    //         ...state,
+    //         list,
+    //         ids: events.map(x => x.id)
+    //     };
+    // },
+
+    [eventsActionTypes.getEventsOnPageNumber]: (state, events) => {
         const list = Object.create(null);
         events.forEach(event => list[event.id] = event);
 

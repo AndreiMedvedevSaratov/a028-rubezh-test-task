@@ -1,1 +1,16 @@
+.events-table-row {
+	display: flex;
 
+	.row-item {
+		display: flex;
+		align-items: center;
+		border-bottom: 1px solid #000000;
+		border-left: 1px solid #000000;
+		height: 25px;
+		padding: 10px;
+
+		&.column-name {
+			justify-content: space-between;
+		}
+	}
+}
