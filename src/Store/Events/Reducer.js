@@ -17,6 +17,15 @@ const initialState = {
         isColorCodeShow: true,
         isActionToDoShow: true,
     },
+    columnsWidth: {
+        startTimeDateWidth: 150,
+        endTimeDateWidth: 200,
+        descriptionWidth: 250,
+        deviceWidth: 300,
+        zoneOfDeviceWidth: 350,
+        colorCodeWidth: 150,
+        actionToDoWidth: 200,
+    },
     currentPage: 1,
 };
 
