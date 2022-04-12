@@ -1,144 +1,130 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-class CheckboxControlPanel extends Component {
-	state = {
-		isStartTimeDateShow: true,
-		isEndTimeDateShow: true,
-		isDescriptionShow: true,
-		isDeviceShow: true,
-		isZoneOfDeviceShow: true,
-		isColorCodeShow: true,
-		isActionToDoShow: true,
-	};
+import {	changeStartTimeDateShow, changeEndTimeDateShow, changeDescriptionShow,
+	changeDeviceShow, changeZoneOfDeviceShow, changeColorCodeShow, changeActionToDoShow } from '../../Store/Events';
 
-	onChangeStartTimeDate = () => {
-		this.setState(initialState => ({
-			isStartTimeDateShow: !initialState.isStartTimeDateShow,
-		}));
+export const CheckboxControlPanel = () => {
+	const dispatch = useDispatch();
+
+	const checkboxControl = useSelector((state) => state.events.checkboxControl);
+
+
+	const onChangeStartTimeDate = () => {
+		dispatch(changeStartTimeDateShow(!checkboxControl.isStartTimeDateShow));
 	}
-	onChangeEndTimeDate = () => {
-		this.setState(initialState => ({
-			isEndTimeDateShow: !initialState.isEndTimeDateShow,
-		}));
+
+	const onChangeEndTimeDate = () => {
+		dispatch(changeEndTimeDateShow(!checkboxControl.isEndTimeDateShow));
 	}
-	onChangeDescription = () => {
-		this.setState(initialState => ({
-			isDescriptionShow: !initialState.isDescriptionShow,
-		}));
+
+	const onChangeDescription = () => {
+		dispatch(changeDescriptionShow(!checkboxControl.isDescriptionShow));
 	}
-	onChangeDevice = () => {
-		this.setState(initialState => ({
-			isDeviceShow: !initialState.isDeviceShow,
-		}));
+
+	const onChangeDevice = () => {
+		dispatch(changeDeviceShow(!checkboxControl.isDeviceShow));
 	}
-	onChangeZoneOfDevice = () => {
-		this.setState(initialState => ({
-			isZoneOfDeviceShow: !initialState.isZoneOfDeviceShow,
-		}));
+
+	const onChangeZoneOfDevice = () => {
+		dispatch(changeZoneOfDeviceShow(!checkboxControl.isZoneOfDeviceShow));
 	}
-	onChangeColorCode = () => {
-		this.setState(initialState => ({
-			isColorCodeShow: !initialState.isColorCodeShow,
-		}));
+
+	const onChangeColorCode = () => {
+		dispatch(changeColorCodeShow(!checkboxControl.isColorCodeShow));
 	}
-	onChangeActionToDo = () => {
-		this.setState(initialState => ({
-			isActionToDoShow: !initialState.isActionToDoShow,
-		}));
+	const onChangeActionToDo = () => {
+		dispatch(changeActionToDoShow(!checkboxControl.isActionToDoShow));
 	}
 
 
-	onSubmit = (e) => {
+	const onSubmit = (e) => {
 		e.preventDefault();
 	}
 
-	render() {
-		return (
-			<div className="checkbox-control-panel">
-				<h4>Control panel for checkboxes - for displaying and not displaying of columns of table</h4>
-				<form className="checkbox-control-form" onSubmit={this.onSubmit}>
+	return (
+		<div className="checkbox-control-panel">
+			<h4>Control panel for checkboxes - for displaying and not displaying of columns of table</h4>
+			<form className="checkbox-control-form" onSubmit={onSubmit}>
 
-					<div className="checkbox-control-panel__checkbox">
-						<label className="checkbox-control-panel__label">
-							<input type="checkbox"
-								checked={this.state.isStartTimeDateShow}
-								onChange={this.onChangeStartTimeDate}
-								className="checkbox-control-panel__input"
-							/>
-							Show "Start Time Date" ?
-						</label>
-					</div>
+				<div className="checkbox-control-panel__checkbox">
+					<label className="checkbox-control-panel__label">
+						<input type="checkbox"
+							checked={checkboxControl.isStartTimeDateShow}
+							onChange={onChangeStartTimeDate}
+							className="checkbox-control-panel__input"
+						/>
+						Show "Start Time Date" ?
+					</label>
+				</div>
 
-					<div className="checkbox-control-panel__checkbox">
-						<label className="checkbox-control-panel__label">
-							<input type="checkbox"
-								checked={this.state.isEndTimeDateShow}
-								onChange={this.onChangeEndTimeDate}
-								className="checkbox-control-panel__input"
-							/>
-							Show "End Time Date" ?
-						</label>
-					</div>
+				<div className="checkbox-control-panel__checkbox">
+					<label className="checkbox-control-panel__label">
+						<input type="checkbox"
+							checked={checkboxControl.isEndTimeDateShow}
+							onChange={onChangeEndTimeDate}
+							className="checkbox-control-panel__input"
+						/>
+						Show "End Time Date" ?
+					</label>
+				</div>
 
-					<div className="checkbox-control-panel__checkbox">
-						<label className="checkbox-control-panel__label">
-							<input type="checkbox"
-								checked={this.state.isDescriptionShow}
-								onChange={this.onChangeDescription}
-								className="checkbox-control-panel__input"
-							/>
-							Show "Description" ?
-						</label>
-					</div>
+				<div className="checkbox-control-panel__checkbox">
+					<label className="checkbox-control-panel__label">
+						<input type="checkbox"
+							checked={checkboxControl.isDescriptionShow}
+							onChange={onChangeDescription}
+							className="checkbox-control-panel__input"
+						/>
+						Show "Description" ?
+					</label>
+				</div>
 
-					<div className="checkbox-control-panel__checkbox">
-						<label className="checkbox-control-panel__label">
-							<input type="checkbox"
-								checked={this.state.isDeviceShow}
-								onChange={this.onChangeDevice}
-								className="checkbox-control-panel__input"
-							/>
-							Show "Device" ?
-						</label>
-					</div>
+				<div className="checkbox-control-panel__checkbox">
+					<label className="checkbox-control-panel__label">
+						<input type="checkbox"
+							checked={checkboxControl.isDeviceShow}
+							onChange={onChangeDevice}
+							className="checkbox-control-panel__input"
+						/>
+						Show "Device" ?
+					</label>
+				</div>
 
-					<div className="checkbox-control-panel__checkbox">
-						<label className="checkbox-control-panel__label">
-							<input type="checkbox"
-								checked={this.state.isZoneOfDeviceShow}
-								onChange={this.onChangeZoneOfDevice}
-								className="checkbox-control-panel__input"
-							/>
-							Show "Zone Of Device" ?
-						</label>
-					</div>
+				<div className="checkbox-control-panel__checkbox">
+					<label className="checkbox-control-panel__label">
+						<input type="checkbox"
+							checked={checkboxControl.isZoneOfDeviceShow}
+							onChange={onChangeZoneOfDevice}
+							className="checkbox-control-panel__input"
+						/>
+						Show "Zone Of Device" ?
+					</label>
+				</div>
 
-					<div className="checkbox-control-panel__checkbox">
-						<label className="checkbox-control-panel__label">
-							<input type="checkbox"
-								checked={this.state.isColorCodeShow}
-								onChange={this.onChangeColorCode}
-								className="checkbox-control-panel__input"
-							/>
-							Show "Color Code" ?
-						</label>
-					</div>
+				<div className="checkbox-control-panel__checkbox">
+					<label className="checkbox-control-panel__label">
+						<input type="checkbox"
+							checked={checkboxControl.isColorCodeShow}
+							onChange={onChangeColorCode}
+							className="checkbox-control-panel__input"
+						/>
+						Show "Color Code" ?
+					</label>
+				</div>
 
-					<div className="checkbox-control-panel__checkbox">
-						<label className="checkbox-control-panel__label">
-							<input type="checkbox"
-								checked={this.state.isActionToDoShow}
-								onChange={this.onChangeActionToDo}
-								className="checkbox-control-panel__input"
-							/>
-							Show "Action To Do" ?
-						</label>
-					</div>
+				<div className="checkbox-control-panel__checkbox">
+					<label className="checkbox-control-panel__label">
+						<input type="checkbox"
+							checked={checkboxControl.isActionToDoShow}
+							onChange={onChangeActionToDo}
+							className="checkbox-control-panel__input"
+						/>
+						Show "Action To Do" ?
+					</label>
+				</div>
 
-				</form>
-			</div>
-		);
-	}
+			</form>
+		</div>
+	);
 }
-
-export default CheckboxControlPanel;

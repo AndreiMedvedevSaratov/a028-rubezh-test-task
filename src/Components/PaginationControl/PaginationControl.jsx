@@ -5,7 +5,7 @@ import cn from "classnames";
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPage } from '../../Store/Events';
 
-let PaginationControl = ({ totalItemsCount, pageSize, portionSize = 20, onPageChanged }) => {
+let PaginationControl = ({ totalItemsCount, pageSize, portionSize = 20 }) => {
 	const dispatch = useDispatch();
 	const currentPage = useSelector((state) => state.events.currentPage);
 
