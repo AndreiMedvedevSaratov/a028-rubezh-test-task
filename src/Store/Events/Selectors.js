@@ -13,9 +13,11 @@ const sorterFactory = (sortOptions, eventsMap) => {
         return (aObj[field] - bObj[field]) * (isDesc ? -1 : 1)
     };
 
-    return field === 'name'
-        ? compareStringFields
-        : compareNumberFields;
+    // return (field === 'startTimeDate' || field === 'endTimeDate')
+    //     ? compareStringFields
+    //     : compareNumberFields;
+    
+    return compareStringFields;
 }
 
 export const filterEventIds = state => {
