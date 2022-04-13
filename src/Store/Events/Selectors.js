@@ -7,11 +7,12 @@ const sorterFactory = (sortOptions, eventsMap) => {
         return aObj[field].localeCompare(bObj[field]) * (isDesc ? -1 : 1)
     };
 
-    const compareNumberFields = (a, b) => {
-        const aObj = eventsMap[a];
-        const bObj = eventsMap[b];
-        return (aObj[field] - bObj[field]) * (isDesc ? -1 : 1)
-    };
+    // Сейчас сортируются только поля по буквенным значениям, но можно прикрутить сортировку и по числам
+    // const compareNumberFields = (a, b) => {
+    //     const aObj = eventsMap[a];
+    //     const bObj = eventsMap[b];
+    //     return (aObj[field] - bObj[field]) * (isDesc ? -1 : 1)
+    // };
 
     // return (field === 'startTimeDate' || field === 'endTimeDate')
     //     ? compareStringFields

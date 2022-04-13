@@ -12,4 +12,12 @@ export const eventsActionTypes = {
     toggleZoneOfDeviceShow: 'TOGGLE_ZONE_OF_DEVICE_SHOW',
     toggleColorCodeShow: 'TOGGLE_COLOR_CODE_SHOW',
     toggleActionToDoShow: 'TOGGLE_ACTION_TO_DO_SHOW',
+
+    changeStartTimeDateWidth: 'CHANGE_START_TIME_DATE_WIDTH',
+    changeEndTimeDateWidth: 'CHANGE_END_TIME_DATE_WIDTH',
+    changeDescriptionWidth: 'CHANGE_DESCRIPTION_WIDTH',
+    changeDeviceWidth: 'CHANGE_DEVICE_WIDTH',
+    changeZoneOfDeviceWidth: 'CHANGE_ZONE_OF_DEVICE_WIDTH',
+    changeColorCodeWidth: 'CHANGE_COLOR_CODE_WIDTH',
+    changeActionToDoWidth: 'CHANGE_ACTION_TO_DO_WIDTH',
 }

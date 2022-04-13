@@ -2,12 +2,13 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {	changeStartTimeDateShow, changeEndTimeDateShow, changeDescriptionShow,
-	changeDeviceShow, changeZoneOfDeviceShow, changeColorCodeShow, changeActionToDoShow } from '../../Store/Events';
+	changeDeviceShow, changeZoneOfDeviceShow, changeColorCodeShow, changeActionToDoShow, changeStartTimeDateWidth } from '../../Store/Events';
 
 export const CheckboxControlPanel = () => {
 	const dispatch = useDispatch();
 
 	const checkboxControl = useSelector((state) => state.events.checkboxControl);
+	const columnsWidth = useSelector((state) => state.events.columnsWidth);
 
 
 	const onChangeStartTimeDate = () => {
@@ -37,6 +38,10 @@ export const CheckboxControlPanel = () => {
 		dispatch(changeActionToDoShow(!checkboxControl.isActionToDoShow));
 	}
 
+	const handleChangeStartTimeDateWidth = (value) => {
+		dispatch(changeStartTimeDateWidth(value));
+	} 
+
 
 	const onSubmit = (e) => {
 		e.preventDefault();
@@ -56,6 +61,13 @@ export const CheckboxControlPanel = () => {
 						/>
 						Show "Start Time Date" ?
 					</label>
+
+					<input
+						type="text"
+						value={columnsWidth.startTimeDateWidth}
+						onChange={({ target: { value } }) => handleChangeStartTimeDateWidth(value)}
+					></input>
+					
 				</div>
 
 				<div className="checkbox-control-panel__checkbox">

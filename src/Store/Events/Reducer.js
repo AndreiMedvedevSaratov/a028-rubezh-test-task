@@ -130,6 +130,18 @@ const reducerMapping = {
             },
         };
     },
+
+    [eventsActionTypes.changeStartTimeDateWidth]: (state, width) => {
+        const tempColumnsWidth = { ...state.columnsWidth };
+
+        return {
+            ...state,
+            columnsWidth: {
+                ...tempColumnsWidth,
+                startTimeDateWidth: width,
+            },
+        };
+    },
 }
 
 export const events = (state = initialState, action) => reducerMapping[action.type] ? reducerMapping[action.type](state, action.payload) : state;
