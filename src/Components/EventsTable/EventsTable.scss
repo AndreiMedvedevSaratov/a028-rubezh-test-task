@@ -3,20 +3,13 @@
 	margin-top: 10px;
 	display: flex;
 	flex-direction: column;
+	padding: 10px;
 
 	.events-table-controls {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 10px 0;
-	}
-
-	.events-table-content {
-		max-height: 500px;
-		max-height: calc(100vh - 200px);
-		overflow: overlay;
-		border-right: 1px solid #000000;
-		border-bottom: 1px solid #000000;
 	}
 
 	.events-table-header {
