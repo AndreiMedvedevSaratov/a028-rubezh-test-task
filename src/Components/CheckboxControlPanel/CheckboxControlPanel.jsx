@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {	toggleColumnVisibility } from '../../Store/Events';
 import { changeColumnWidth } from './../../Store/Events/Actions';
 
+import './CheckboxControlPanel.scss';
+
 export const CheckboxControlPanel = () => {
 	const dispatch = useDispatch();
 
@@ -38,9 +40,8 @@ export const CheckboxControlPanel = () => {
 		dispatch(toggleColumnVisibility(6, !checkboxControl[6]));
 	}
 
-	const handleChangeStartTimeDateWidth = (value) => {
-		console.log(columnsWidth);
-		dispatch(changeColumnWidth(0, value));
+	const handleChangeWidth = (index, value) => {
+		dispatch(changeColumnWidth(index, value));
 	} 
 
 
@@ -66,7 +67,7 @@ export const CheckboxControlPanel = () => {
 					<input
 						type="text"
 						value={columnsWidth[0]}
-						onChange={({ target: { value } }) => handleChangeStartTimeDateWidth(value)}
+						onChange={({ target: { value } }) => handleChangeWidth(0, value)}
 					></input>
 					
 				</div>
@@ -80,6 +81,13 @@ export const CheckboxControlPanel = () => {
 						/>
 						Show "End Time Date" ?
 					</label>
+
+					<input
+						type="text"
+						value={columnsWidth[1]}
+						onChange={({ target: { value } }) => handleChangeWidth(1, value)}
+					></input>
+
 				</div>
 
 				<div className="checkbox-control-panel__checkbox">
@@ -91,6 +99,13 @@ export const CheckboxControlPanel = () => {
 						/>
 						Show "Description" ?
 					</label>
+
+					<input
+						type="text"
+						value={columnsWidth[2]}
+						onChange={({ target: { value } }) => handleChangeWidth(2, value)}
+					></input>
+
 				</div>
 
 				<div className="checkbox-control-panel__checkbox">
@@ -102,6 +117,13 @@ export const CheckboxControlPanel = () => {
 						/>
 						Show "Device" ?
 					</label>
+
+					<input
+						type="text"
+						value={columnsWidth[3]}
+						onChange={({ target: { value } }) => handleChangeWidth(3, value)}
+					></input>
+
 				</div>
 
 				<div className="checkbox-control-panel__checkbox">
@@ -113,6 +135,13 @@ export const CheckboxControlPanel = () => {
 						/>
 						Show "Zone Of Device" ?
 					</label>
+
+					<input
+						type="text"
+						value={columnsWidth[4]}
+						onChange={({ target: { value } }) => handleChangeWidth(4, value)}
+					></input>
+
 				</div>
 
 				<div className="checkbox-control-panel__checkbox">
@@ -124,6 +153,13 @@ export const CheckboxControlPanel = () => {
 						/>
 						Show "Color Code" ?
 					</label>
+
+					<input
+						type="text"
+						value={columnsWidth[5]}
+						onChange={({ target: { value } }) => handleChangeWidth(5, value)}
+					></input>
+
 				</div>
 
 				<div className="checkbox-control-panel__checkbox">
@@ -135,6 +171,13 @@ export const CheckboxControlPanel = () => {
 						/>
 						Show "Action To Do" ?
 					</label>
+
+					<input
+						type="text"
+						value={columnsWidth[6]}
+						onChange={({ target: { value } }) => handleChangeWidth(6, value)}
+					></input>
+
 				</div>
 
 			</form>

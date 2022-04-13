@@ -1,16 +1,24 @@
 .checkbox-control-panel {
 	display: flex;
 	flex-direction: column;
+
+	h4 {
+		margin: 0 auto 10px;
+		width: 580px;
+	}
 }
 
 .checkbox-control-form {
-
+	margin-bottom: 10px;
 }
 
 .checkbox-control-panel__checkbox {
-	
+	margin: 0 auto;
+	width: 500px;
+	display: flex;
+	justify-content: space-between;
 }
 
-.checkbox-control-panel__label {
-
+.checkbox-control-panel__input {
+	margin-right: 10px;
 }

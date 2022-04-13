@@ -17,5 +17,6 @@
 
 .paginatorButton {
 	font-weight: bold;
+	border-color: black;
 	cursor: pointer;
 }
