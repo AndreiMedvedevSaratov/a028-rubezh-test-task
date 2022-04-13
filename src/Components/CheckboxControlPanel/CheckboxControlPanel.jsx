@@ -25,9 +25,9 @@ export const CheckboxControlPanel = () => {
 		dispatch(changeColumnWidth(index, value));
 	} 
 
-	const onSubmit = (e) => {
-		e.preventDefault();
-	}
+	// const onSubmit = (e) => {
+	// 	e.preventDefault();
+	// }
 
 	return (
 		<div className="checkbox-control-panel">

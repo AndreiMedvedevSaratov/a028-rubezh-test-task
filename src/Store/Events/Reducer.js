@@ -11,6 +11,7 @@ const initialState = {
     checkboxControl: [true, true, true, true, true, true, true],
     columnsWidth: [200, 200, 500, 300, 350, 150, 200],
     currentPage: 1,
+    selectedRows: [],
 };
 
 const reducerMapping = {
@@ -25,7 +26,15 @@ const reducerMapping = {
         };
     },
 
-    [eventsActionTypes.setCurrentPage]: (state, currentPage) => ({ ...state, currentPage: currentPage }),
+    [eventsActionTypes.setCurrentPage]: (state, currentPage) => {
+        const tempSelectedRows = [];
+
+        return {
+            ...state,
+            currentPage: currentPage,
+            selectedRows: tempSelectedRows
+        }
+    },
 
     [eventsActionTypes.applyFilter]: (state, filter) => ({ ...state, filter }),
 
@@ -48,6 +57,19 @@ const reducerMapping = {
         return {
             ...state,
             columnsWidth: tempColumnsWidth
+        };
+    },
+
+    [eventsActionTypes.toggleSelectRowById]: (state, id) => {
+        let tempSelectedRows = [...state.selectedRows];
+
+        if (tempSelectedRows.includes(id)) {
+            tempSelectedRows = tempSelectedRows.filter(x => x !== id);
+        } else tempSelectedRows.push(id);
+
+        return {
+            ...state,
+            selectedRows: tempSelectedRows
         };
     },
 }

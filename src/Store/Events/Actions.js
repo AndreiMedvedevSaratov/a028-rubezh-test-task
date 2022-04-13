@@ -43,3 +43,8 @@ export const changeColumnWidth = (index, width) => ({
     type: eventsActionTypes.changeColumnWidth,
     payload: { index, width }
 });
+
+export const toggleSelectRowById = (id) => ({
+    type: eventsActionTypes.toggleSelectRowById,
+    payload: id
+});

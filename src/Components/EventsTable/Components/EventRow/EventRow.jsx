@@ -1,9 +1,12 @@
-import React, { useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useMemo, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import './EventRow.scss';
 
-export const EventRow = ({ id }) => {
+import { toggleSelectRowById } from './../../../../Store/Events/Actions';
+
+export const EventRow = ({ id, isSelectedRow }) => {
+	const dispatch = useDispatch();
 
 	const event = useSelector((state) => state.events.list[id]);
 
@@ -12,8 +15,15 @@ export const EventRow = ({ id }) => {
 	const checkboxControl = useSelector((state) => state.events.checkboxControl);
 	const columnsWidth = useSelector((state) => state.events.columnsWidth);
 
+	const handleSelectionOnRow = useCallback(() => {
+		dispatch(toggleSelectRowById(id));
+	}, [dispatch, id]);
+
 	const markup = useMemo(() =>
-	(<div className='events-table-row'>
+	(<div
+		className={isSelectedRow ? 'events-table-row selected-row' : 'events-table-row'}
+		onClick={handleSelectionOnRow}
+		>
 
 		{!!checkboxControl[0] && <div className='row-item column-start-time-date' style={{ width: `${columnsWidth[0]}px` }}>
 			<span className='start-time-date'>{startTimeDate}</span>
@@ -43,7 +53,8 @@ export const EventRow = ({ id }) => {
 			<span className='action-to-do'>{actionToDo}</span>
 		</div>}
 
-	</div>), [startTimeDate, endTimeDate, description, device, zoneOfDevice, colorCode, actionToDo, columnsWidth, checkboxControl]);
+	</div>), [startTimeDate, endTimeDate, description, device, zoneOfDevice, colorCode, actionToDo,
+					columnsWidth, checkboxControl, handleSelectionOnRow, isSelectedRow]);
 
 	return markup;
 }

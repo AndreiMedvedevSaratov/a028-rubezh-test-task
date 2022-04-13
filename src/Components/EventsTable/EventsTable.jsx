@@ -16,8 +16,8 @@ export const EventsTable = () => {
 	const sortOptions = useSelector((state => state.events.sortOptions));
 	const columnsWidth = useSelector((state) => state.events.columnsWidth);
 	const currentPage = useSelector((state) => state.events.currentPage);
-
 	const checkboxControl = useSelector((state) => state.events.checkboxControl);
+	const selectedRowsIds = useSelector((state) => state.events.selectedRows);
 
 	useEffect(() =>
 		dispatch(getEventsOnPageNumber(currentPage)), [dispatch, currentPage]
@@ -92,12 +92,17 @@ export const EventsTable = () => {
 			{tableHeader}
 
 			{!!eventIds.length && <div className="events-table-content">
-				{eventIds.map(x => (<EventRow id={x} key={x} />))}
+				{eventIds.map(x => (
+					<EventRow
+						id={x}
+						key={x}
+						isSelectedRow={selectedRowsIds.includes(x)}
+					/>))}
 			</div>}
 
 		</div>
 
-	), [eventIds, tableHeader]);
+	), [eventIds, tableHeader, selectedRowsIds]);
 
 	return markup;
 }

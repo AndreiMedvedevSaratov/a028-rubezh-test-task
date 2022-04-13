@@ -5,5 +5,6 @@ export const eventsActionTypes = {
     getEventsOnPageNumber: 'EVENTS_ON_PAGE_NUMBER',
     setCurrentPage: 'SET_CURRENT_PAGE',
     toggleColumnVisibility: 'TOGGLE_COLUMN_VISIBILITY',
-    changeColumnWidth: 'CHANGE_COLUMN_WIDTH'
+    changeColumnWidth: 'CHANGE_COLUMN_WIDTH',
+    toggleSelectRowById: 'TOGGLE_SELECT_ROW_BY_ID'
 }
