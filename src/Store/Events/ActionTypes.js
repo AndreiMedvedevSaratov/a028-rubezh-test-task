@@ -4,20 +4,6 @@ export const eventsActionTypes = {
     applySorting: 'EVENTS_APPLY_SORTING',
     getEventsOnPageNumber: 'EVENTS_ON_PAGE_NUMBER',
     setCurrentPage: 'SET_CURRENT_PAGE',
-
-    toggleStartTimeDateShow: 'TOGGLE_START_TIME_DATE_SHOW',
-    toggleEndTimeDateShow: 'TOGGLE_END_TIME_DATE_SHOW',
-    toggleDescriptionShow: 'TOGGLE_DESCRIPTION_SHOW',
-    toggleDeviceShow: 'TOGGLE_DEVICE_SHOW',
-    toggleZoneOfDeviceShow: 'TOGGLE_ZONE_OF_DEVICE_SHOW',
-    toggleColorCodeShow: 'TOGGLE_COLOR_CODE_SHOW',
-    toggleActionToDoShow: 'TOGGLE_ACTION_TO_DO_SHOW',
-
-    changeStartTimeDateWidth: 'CHANGE_START_TIME_DATE_WIDTH',
-    changeEndTimeDateWidth: 'CHANGE_END_TIME_DATE_WIDTH',
-    changeDescriptionWidth: 'CHANGE_DESCRIPTION_WIDTH',
-    changeDeviceWidth: 'CHANGE_DEVICE_WIDTH',
-    changeZoneOfDeviceWidth: 'CHANGE_ZONE_OF_DEVICE_WIDTH',
-    changeColorCodeWidth: 'CHANGE_COLOR_CODE_WIDTH',
-    changeActionToDoWidth: 'CHANGE_ACTION_TO_DO_WIDTH',
+    toggleColumnVisibility: 'TOGGLE_COLUMN_VISIBILITY',
+    changeColumnWidth: 'CHANGE_COLUMN_WIDTH'
 }

@@ -32,50 +32,50 @@ export const EventsTable = () => {
 	const tableHeader = useMemo(() => (
 		<div className='events-table-header'>
 
-			{!!checkboxControl.isStartTimeDateShow && <div className='header-item column-start-time-date'
-				style={{ width: `${columnsWidth.startTimeDateWidth}px` }}>
+			{!!checkboxControl[0] && <div className='header-item column-start-time-date'
+				style={{ width: `${columnsWidth[0]}px` }}>
 				<span className='header-item-title'>startTimeDate</span>
 				<span className='sort-button' onClick={onSortClickFactory('startTimeDate')}>
 					{sortOptions.field === 'startTimeDate' && sortOptions.isDesc ? '🔺' : '🔻'}
 				</span>
 			</div>}
 
-			{!!checkboxControl.isEndTimeDateShow && <div className='header-item column-end-time-date' style={{ width: `${columnsWidth.endTimeDateWidth}px` }}>
+			{!!checkboxControl[1] && <div className='header-item column-end-time-date' style={{ width: `${columnsWidth[1]}px` }}>
 				<span className='header-item-title'>endTimeDate</span>
 				<span className='sort-button' onClick={onSortClickFactory('endTimeDate')}>
 					{sortOptions.field === 'endTimeDate' && sortOptions.isDesc ? '🔺' : '🔻'}
 				</span>
 			</div>}
 
-			{!!checkboxControl.isDescriptionShow && <div className='header-item column-description' style={{ width: `${columnsWidth.descriptionWidth}px` }}>
+			{!!checkboxControl[2] && <div className='header-item column-description' style={{ width: `${columnsWidth[2]}px` }}>
 				<span className='header-item-title'>description</span>
 				<span className='sort-button' onClick={onSortClickFactory('description')}>
 					{sortOptions.field === 'description' && sortOptions.isDesc ? '🔺' : '🔻'}
 				</span>
 			</div>}
 
-			{!!checkboxControl.isDeviceShow && <div className='header-item column-device' style={{ width: `${columnsWidth.deviceWidth}px` }}>
+			{!!checkboxControl[3] && <div className='header-item column-device' style={{ width: `${columnsWidth[3]}px` }}>
 				<span className='header-item-title'>device</span>
 				<span className='sort-button' onClick={onSortClickFactory('device')}>
 					{sortOptions.field === 'device' && sortOptions.isDesc ? '🔺' : '🔻'}
 				</span>
 			</div>}
 
-			{!!checkboxControl.isZoneOfDeviceShow && <div className='header-item column-zone-of-device' style={{ width: `${columnsWidth.zoneOfDeviceWidth}px` }}>
+			{!!checkboxControl[4] && <div className='header-item column-zone-of-device' style={{ width: `${columnsWidth[4]}px` }}>
 				<span className='header-item-title'>zoneOfDevice</span>
 				<span className='sort-button' onClick={onSortClickFactory('zoneOfDevice')}>
 					{sortOptions.field === 'zoneOfDevice' && sortOptions.isDesc ? '🔺' : '🔻'}
 				</span>
 			</div>}
 
-			{!!checkboxControl.isColorCodeShow && <div className='header-item column-color-code' style={{ width: `${columnsWidth.colorCodeWidth}px` }}>
+			{!!checkboxControl[5] && <div className='header-item column-color-code' style={{ width: `${columnsWidth[5]}px` }}>
 				<span className='header-item-title'>colorCode</span>
 				<span className='sort-button' onClick={onSortClickFactory('colorCode')}>
 					{sortOptions.field === 'colorCode' && sortOptions.isDesc ? '🔺' : '🔻'}
 				</span>
 			</div>}
 
-			{!!checkboxControl.isActionToDoShow && <div className='header-item column-action-to-do' style={{ width: `${columnsWidth.actionToDoWidth}px` }}>
+			{!!checkboxControl[6] && <div className='header-item column-action-to-do' style={{ width: `${columnsWidth[6]}px` }}>
 				<span className='header-item-title'>actionToDo</span>
 				<span className='sort-button' onClick={onSortClickFactory('actionToDo')}>
 					{sortOptions.field === 'actionToDo' && sortOptions.isDesc ? '🔺' : '🔻'}
@@ -83,10 +83,7 @@ export const EventsTable = () => {
 			</div>}
 
 		</div>
-	), [onSortClickFactory, sortOptions.field, sortOptions.isDesc, columnsWidth.startTimeDateWidth, columnsWidth.actionToDoWidth, columnsWidth.colorCodeWidth,
-		columnsWidth.descriptionWidth, columnsWidth.deviceWidth, columnsWidth.endTimeDateWidth, columnsWidth.zoneOfDeviceWidth,
-		checkboxControl.isStartTimeDateShow, checkboxControl.isActionToDoShow, checkboxControl.isColorCodeShow, checkboxControl.isDescriptionShow,
-		checkboxControl.isDeviceShow, checkboxControl.isEndTimeDateShow, checkboxControl.isZoneOfDeviceShow]);
+	), [onSortClickFactory, sortOptions.field, sortOptions.isDesc, columnsWidth, checkboxControl]);
 
 	const markup = useMemo(() => (
 		<div className="events-table">

@@ -34,72 +34,12 @@ export const setCurrentPage = (currentPage) => {
     }
 }
 
-export const changeStartTimeDateShow = (showOrNotShow) => ({
-    type: eventsActionTypes.toggleStartTimeDateShow,
-    payload: showOrNotShow
-});
+export const toggleColumnVisibility = (index, isVisible) => ({
+    type: eventsActionTypes.toggleColumnVisibility,
+    payload: { index, isVisible}
+})
 
-export const changeEndTimeDateShow = (showOrNotShow) => ({
-    type: eventsActionTypes.toggleEndTimeDateShow,
-    payload: showOrNotShow
-});
-
-export const changeDescriptionShow = (showOrNotShow) => ({
-    type: eventsActionTypes.toggleDescriptionShow,
-    payload: showOrNotShow
-});
-
-export const changeDeviceShow = (showOrNotShow) => ({
-    type: eventsActionTypes.toggleDeviceShow,
-    payload: showOrNotShow
-});
-
-export const changeZoneOfDeviceShow = (showOrNotShow) => ({
-    type: eventsActionTypes.toggleZoneOfDeviceShow,
-    payload: showOrNotShow
-});
-
-export const changeColorCodeShow = (showOrNotShow) => ({
-    type: eventsActionTypes.toggleColorCodeShow,
-    payload: showOrNotShow
-});
-
-export const changeActionToDoShow = (showOrNotShow) => ({
-    type: eventsActionTypes.toggleActionToDoShow,
-    payload: showOrNotShow
-});
-
-export const changeStartTimeDateWidth = (width) => ({
-    type: eventsActionTypes.changeStartTimeDateWidth,
-    payload: width
-});
-
-export const changeEndTimeDateWidth = (width) => ({
-    type: eventsActionTypes.changeEndTimeDateWidth,
-    payload: width
-});
-
-export const changeDescriptionWidth = (width) => ({
-    type: eventsActionTypes.changeDescriptionWidth,
-    payload: width
-});
-
-export const changeDeviceWidth = (width) => ({
-    type: eventsActionTypes.changeDeviceWidth,
-    payload: width
-});
-
-export const changeZoneOfDeviceWidth = (width) => ({
-    type: eventsActionTypes.changeZoneOfDeviceWidth,
-    payload: width
-});
-
-export const changeColorCodeWidth = (width) => ({
-    type: eventsActionTypes.changeColorCodeWidth,
-    payload: width
-});
-
-export const changeActionToDoWidth = (width) => ({
-    type: eventsActionTypes.changeActionToDoWidth,
-    payload: width
+export const changeColumnWidth = (index, width) => ({
+    type: eventsActionTypes.changeColumnWidth,
+    payload: { index, width }
 });

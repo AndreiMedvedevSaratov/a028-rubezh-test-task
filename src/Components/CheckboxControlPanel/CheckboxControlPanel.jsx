@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {	changeStartTimeDateShow, changeEndTimeDateShow, changeDescriptionShow,
-	changeDeviceShow, changeZoneOfDeviceShow, changeColorCodeShow, changeActionToDoShow, changeStartTimeDateWidth } from '../../Store/Events';
+import {	toggleColumnVisibility } from '../../Store/Events';
+import { changeColumnWidth } from './../../Store/Events/Actions';
 
 export const CheckboxControlPanel = () => {
 	const dispatch = useDispatch();
@@ -12,34 +12,35 @@ export const CheckboxControlPanel = () => {
 
 
 	const onChangeStartTimeDate = () => {
-		dispatch(changeStartTimeDateShow(!checkboxControl.isStartTimeDateShow));
+		dispatch(toggleColumnVisibility(0, !checkboxControl[0]));
 	}
 
 	const onChangeEndTimeDate = () => {
-		dispatch(changeEndTimeDateShow(!checkboxControl.isEndTimeDateShow));
+		dispatch(toggleColumnVisibility(1, !checkboxControl[1]));
 	}
 
 	const onChangeDescription = () => {
-		dispatch(changeDescriptionShow(!checkboxControl.isDescriptionShow));
+		dispatch(toggleColumnVisibility(2, !checkboxControl[2]));
 	}
 
 	const onChangeDevice = () => {
-		dispatch(changeDeviceShow(!checkboxControl.isDeviceShow));
+		dispatch(toggleColumnVisibility(3, !checkboxControl[3]));
 	}
 
 	const onChangeZoneOfDevice = () => {
-		dispatch(changeZoneOfDeviceShow(!checkboxControl.isZoneOfDeviceShow));
+		dispatch(toggleColumnVisibility(4, !checkboxControl[4]));
 	}
 
 	const onChangeColorCode = () => {
-		dispatch(changeColorCodeShow(!checkboxControl.isColorCodeShow));
+		dispatch(toggleColumnVisibility(5, !checkboxControl[5]));
 	}
 	const onChangeActionToDo = () => {
-		dispatch(changeActionToDoShow(!checkboxControl.isActionToDoShow));
+		dispatch(toggleColumnVisibility(6, !checkboxControl[6]));
 	}
 
 	const handleChangeStartTimeDateWidth = (value) => {
-		dispatch(changeStartTimeDateWidth(value));
+		console.log(columnsWidth);
+		dispatch(changeColumnWidth(0, value));
 	} 
 
 
@@ -55,7 +56,7 @@ export const CheckboxControlPanel = () => {
 				<div className="checkbox-control-panel__checkbox">
 					<label className="checkbox-control-panel__label">
 						<input type="checkbox"
-							checked={checkboxControl.isStartTimeDateShow}
+							checked={checkboxControl[0]}
 							onChange={onChangeStartTimeDate}
 							className="checkbox-control-panel__input"
 						/>
@@ -64,7 +65,7 @@ export const CheckboxControlPanel = () => {
 
 					<input
 						type="text"
-						value={columnsWidth.startTimeDateWidth}
+						value={columnsWidth[0]}
 						onChange={({ target: { value } }) => handleChangeStartTimeDateWidth(value)}
 					></input>
 					
@@ -73,7 +74,7 @@ export const CheckboxControlPanel = () => {
 				<div className="checkbox-control-panel__checkbox">
 					<label className="checkbox-control-panel__label">
 						<input type="checkbox"
-							checked={checkboxControl.isEndTimeDateShow}
+							checked={checkboxControl[1]}
 							onChange={onChangeEndTimeDate}
 							className="checkbox-control-panel__input"
 						/>
@@ -84,7 +85,7 @@ export const CheckboxControlPanel = () => {
 				<div className="checkbox-control-panel__checkbox">
 					<label className="checkbox-control-panel__label">
 						<input type="checkbox"
-							checked={checkboxControl.isDescriptionShow}
+							checked={checkboxControl[2]}
 							onChange={onChangeDescription}
 							className="checkbox-control-panel__input"
 						/>
@@ -95,7 +96,7 @@ export const CheckboxControlPanel = () => {
 				<div className="checkbox-control-panel__checkbox">
 					<label className="checkbox-control-panel__label">
 						<input type="checkbox"
-							checked={checkboxControl.isDeviceShow}
+							checked={checkboxControl[3]}
 							onChange={onChangeDevice}
 							className="checkbox-control-panel__input"
 						/>
@@ -106,7 +107,7 @@ export const CheckboxControlPanel = () => {
 				<div className="checkbox-control-panel__checkbox">
 					<label className="checkbox-control-panel__label">
 						<input type="checkbox"
-							checked={checkboxControl.isZoneOfDeviceShow}
+							checked={checkboxControl[4]}
 							onChange={onChangeZoneOfDevice}
 							className="checkbox-control-panel__input"
 						/>
@@ -117,7 +118,7 @@ export const CheckboxControlPanel = () => {
 				<div className="checkbox-control-panel__checkbox">
 					<label className="checkbox-control-panel__label">
 						<input type="checkbox"
-							checked={checkboxControl.isColorCodeShow}
+							checked={checkboxControl[5]}
 							onChange={onChangeColorCode}
 							className="checkbox-control-panel__input"
 						/>
@@ -128,7 +129,7 @@ export const CheckboxControlPanel = () => {
 				<div className="checkbox-control-panel__checkbox">
 					<label className="checkbox-control-panel__label">
 						<input type="checkbox"
-							checked={checkboxControl.isActionToDoShow}
+							checked={checkboxControl[6]}
 							onChange={onChangeActionToDo}
 							className="checkbox-control-panel__input"
 						/>

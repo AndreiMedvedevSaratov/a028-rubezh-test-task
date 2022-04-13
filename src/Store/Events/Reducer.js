@@ -1,4 +1,5 @@
 import { eventsActionTypes } from "./ActionTypes";
+import { isVisible } from '@testing-library/user-event/dist/utils';
 
 const initialState = {
     list: Object.create(null),
@@ -8,24 +9,8 @@ const initialState = {
         field: "startTimeDate",
         isDesc: false
     },
-    checkboxControl: {
-        isStartTimeDateShow: true,
-        isEndTimeDateShow: true,
-        isDescriptionShow: true,
-        isDeviceShow: true,
-        isZoneOfDeviceShow: true,
-        isColorCodeShow: true,
-        isActionToDoShow: true,
-    },
-    columnsWidth: {
-        startTimeDateWidth: 200,
-        endTimeDateWidth: 200,
-        descriptionWidth: 500,
-        deviceWidth: 300,
-        zoneOfDeviceWidth: 350,
-        colorCodeWidth: 150,
-        actionToDoWidth: 200,
-    },
+    checkboxControl: [true, true, true, true, true, true, true],
+    columnsWidth: [200, 200, 500, 300, 350, 150, 200],
     currentPage: 1,
 };
 
@@ -47,99 +32,23 @@ const reducerMapping = {
 
     [eventsActionTypes.applySorting]: (state, sortOptions) => ({ ...state, sortOptions }),
 
-    [eventsActionTypes.toggleStartTimeDateShow]: (state, showOrNotShow) => {
-        const tempCheckboxControl = { ...state.checkboxControl };
+    [eventsActionTypes.toggleColumnVisibility]: (state, payload) => {
+        const tempCheckboxControl = [...state.checkboxControl];
+        tempCheckboxControl.splice(payload.index, 1, payload.isVisible)
 
         return {
             ...state,
-            checkboxControl: {
-                ...tempCheckboxControl,
-                isStartTimeDateShow: showOrNotShow,
-            },
+            checkboxControl: tempCheckboxControl
         };
     },
 
-    [eventsActionTypes.toggleEndTimeDateShow]: (state, showOrNotShow) => {
-        const tempCheckboxControl = { ...state.checkboxControl };
+    [eventsActionTypes.changeColumnWidth]: (state, payload) => {
+        const tempColumnsWidth = [...state.columnsWidth];
+        tempColumnsWidth.splice(payload.index, 1, payload.width)
 
         return {
             ...state,
-            checkboxControl: {
-                ...tempCheckboxControl,
-                isEndTimeDateShow: showOrNotShow,
-            },
-        };
-    },
-
-    [eventsActionTypes.toggleDescriptionShow]: (state, showOrNotShow) => {
-        const tempCheckboxControl = { ...state.checkboxControl };
-
-        return {
-            ...state,
-            checkboxControl: {
-                ...tempCheckboxControl,
-                isDescriptionShow: showOrNotShow,
-            },
-        };
-    },
-
-    [eventsActionTypes.toggleDeviceShow]: (state, showOrNotShow) => {
-        const tempCheckboxControl = { ...state.checkboxControl };
-
-        return {
-            ...state,
-            checkboxControl: {
-                ...tempCheckboxControl,
-                isDeviceShow: showOrNotShow,
-            },
-        };
-    },
-
-    [eventsActionTypes.toggleZoneOfDeviceShow]: (state, showOrNotShow) => {
-        const tempCheckboxControl = { ...state.checkboxControl };
-
-        return {
-            ...state,
-            checkboxControl: {
-                ...tempCheckboxControl,
-                isZoneOfDeviceShow: showOrNotShow,
-            },
-        };
-    },
-
-    [eventsActionTypes.toggleColorCodeShow]: (state, showOrNotShow) => {
-        const tempCheckboxControl = { ...state.checkboxControl };
-
-        return {
-            ...state,
-            checkboxControl: {
-                ...tempCheckboxControl,
-                isColorCodeShow: showOrNotShow,
-            },
-        };
-    },
-
-    [eventsActionTypes.toggleActionToDoShow]: (state, showOrNotShow) => {
-        const tempCheckboxControl = { ...state.checkboxControl };
-
-        return {
-            ...state,
-            checkboxControl: {
-                ...tempCheckboxControl,
-                isActionToDoShow: showOrNotShow,
-            },
-        };
-    },
-
-    [eventsActionTypes.changeStartTimeDateWidth]: (state, width) => {
-        const tempColumnsWidth = { ...state.columnsWidth };
-
-        return {
-            ...state,
-            columnsWidth: {
-                ...tempColumnsWidth,
-                startTimeDateWidth: width,
-            },
+            columnsWidth: tempColumnsWidth
         };
     },
 }
