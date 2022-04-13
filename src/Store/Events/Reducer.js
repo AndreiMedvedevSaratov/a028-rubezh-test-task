@@ -1,5 +1,4 @@
 import { eventsActionTypes } from "./ActionTypes";
-import { isVisible } from '@testing-library/user-event/dist/utils';
 
 const initialState = {
     list: Object.create(null),

@@ -5,6 +5,8 @@ import { getEventsOnPageNumber, filterEventIds, applySorting } from './../../Sto
 
 import { EventRow } from './Components/EventRow/EventRow';
 
+import { COLUMN_TITLES } from '../../Utils/Constants';
+
 import './EventsTable.scss';
 
 export const EventsTable = () => {
@@ -34,49 +36,49 @@ export const EventsTable = () => {
 
 			{!!checkboxControl[0] && <div className='header-item column-start-time-date'
 				style={{ width: `${columnsWidth[0]}px` }}>
-				<span className='header-item-title'>startTimeDate</span>
+				<span className='header-item-title'>{COLUMN_TITLES[0]}</span>
 				<span className='sort-button' onClick={onSortClickFactory('startTimeDate')}>
 					{sortOptions.field === 'startTimeDate' && sortOptions.isDesc ? '🔺' : '🔻'}
 				</span>
 			</div>}
 
 			{!!checkboxControl[1] && <div className='header-item column-end-time-date' style={{ width: `${columnsWidth[1]}px` }}>
-				<span className='header-item-title'>endTimeDate</span>
+				<span className='header-item-title'>{COLUMN_TITLES[1]}</span>
 				<span className='sort-button' onClick={onSortClickFactory('endTimeDate')}>
 					{sortOptions.field === 'endTimeDate' && sortOptions.isDesc ? '🔺' : '🔻'}
 				</span>
 			</div>}
 
 			{!!checkboxControl[2] && <div className='header-item column-description' style={{ width: `${columnsWidth[2]}px` }}>
-				<span className='header-item-title'>description</span>
+				<span className='header-item-title'>{COLUMN_TITLES[2]}</span>
 				<span className='sort-button' onClick={onSortClickFactory('description')}>
 					{sortOptions.field === 'description' && sortOptions.isDesc ? '🔺' : '🔻'}
 				</span>
 			</div>}
 
 			{!!checkboxControl[3] && <div className='header-item column-device' style={{ width: `${columnsWidth[3]}px` }}>
-				<span className='header-item-title'>device</span>
+				<span className='header-item-title'>{COLUMN_TITLES[3]}</span>
 				<span className='sort-button' onClick={onSortClickFactory('device')}>
 					{sortOptions.field === 'device' && sortOptions.isDesc ? '🔺' : '🔻'}
 				</span>
 			</div>}
 
 			{!!checkboxControl[4] && <div className='header-item column-zone-of-device' style={{ width: `${columnsWidth[4]}px` }}>
-				<span className='header-item-title'>zoneOfDevice</span>
+				<span className='header-item-title'>{COLUMN_TITLES[4]}</span>
 				<span className='sort-button' onClick={onSortClickFactory('zoneOfDevice')}>
 					{sortOptions.field === 'zoneOfDevice' && sortOptions.isDesc ? '🔺' : '🔻'}
 				</span>
 			</div>}
 
 			{!!checkboxControl[5] && <div className='header-item column-color-code' style={{ width: `${columnsWidth[5]}px` }}>
-				<span className='header-item-title'>colorCode</span>
+				<span className='header-item-title'>{COLUMN_TITLES[5]}</span>
 				<span className='sort-button' onClick={onSortClickFactory('colorCode')}>
 					{sortOptions.field === 'colorCode' && sortOptions.isDesc ? '🔺' : '🔻'}
 				</span>
 			</div>}
 
 			{!!checkboxControl[6] && <div className='header-item column-action-to-do' style={{ width: `${columnsWidth[6]}px` }}>
-				<span className='header-item-title'>actionToDo</span>
+				<span className='header-item-title'>{COLUMN_TITLES[6]}</span>
 				<span className='sort-button' onClick={onSortClickFactory('actionToDo')}>
 					{sortOptions.field === 'actionToDo' && sortOptions.isDesc ? '🔺' : '🔻'}
 				</span>

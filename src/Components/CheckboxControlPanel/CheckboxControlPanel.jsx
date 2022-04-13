@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {	toggleColumnVisibility } from '../../Store/Events';
 import { changeColumnWidth } from './../../Store/Events/Actions';
 
+import { COLUMN_TITLES } from '../../Utils/Constants';
+
 import './CheckboxControlPanel.scss';
 
 export const CheckboxControlPanel = () => {
@@ -12,38 +14,16 @@ export const CheckboxControlPanel = () => {
 	const checkboxControl = useSelector((state) => state.events.checkboxControl);
 	const columnsWidth = useSelector((state) => state.events.columnsWidth);
 
-
-	const onChangeStartTimeDate = () => {
-		dispatch(toggleColumnVisibility(0, !checkboxControl[0]));
-	}
-
-	const onChangeEndTimeDate = () => {
-		dispatch(toggleColumnVisibility(1, !checkboxControl[1]));
-	}
-
-	const onChangeDescription = () => {
-		dispatch(toggleColumnVisibility(2, !checkboxControl[2]));
-	}
-
-	const onChangeDevice = () => {
-		dispatch(toggleColumnVisibility(3, !checkboxControl[3]));
-	}
-
-	const onChangeZoneOfDevice = () => {
-		dispatch(toggleColumnVisibility(4, !checkboxControl[4]));
-	}
-
-	const onChangeColorCode = () => {
-		dispatch(toggleColumnVisibility(5, !checkboxControl[5]));
-	}
-	const onChangeActionToDo = () => {
-		dispatch(toggleColumnVisibility(6, !checkboxControl[6]));
+	const handleChangeCheckbox = (index) => {
+		dispatch(toggleColumnVisibility(index, !checkboxControl[index]));
 	}
 
 	const handleChangeWidth = (index, value) => {
+		// if (value < 150) {
+		// 	value = 150
+		// }
 		dispatch(changeColumnWidth(index, value));
 	} 
-
 
 	const onSubmit = (e) => {
 		e.preventDefault();
@@ -52,34 +32,32 @@ export const CheckboxControlPanel = () => {
 	return (
 		<div className="checkbox-control-panel">
 			<h4>Control panel for checkboxes - for displaying and not displaying of columns of table</h4>
-			<form className="checkbox-control-form" onSubmit={onSubmit}>
 
 				<div className="checkbox-control-panel__checkbox">
 					<label className="checkbox-control-panel__label">
 						<input type="checkbox"
 							checked={checkboxControl[0]}
-							onChange={onChangeStartTimeDate}
+							onChange={({ target: { checked } }) => handleChangeCheckbox(0, checked)}
 							className="checkbox-control-panel__input"
 						/>
-						Show "Start Time Date" ?
+						Show "{COLUMN_TITLES[0]}" column ?
 					</label>
 
 					<input
 						type="text"
 						value={columnsWidth[0]}
 						onChange={({ target: { value } }) => handleChangeWidth(0, value)}
-					></input>
-					
+					></input>				
 				</div>
 
 				<div className="checkbox-control-panel__checkbox">
 					<label className="checkbox-control-panel__label">
 						<input type="checkbox"
 							checked={checkboxControl[1]}
-							onChange={onChangeEndTimeDate}
+							onChange={({ target: { checked } }) => handleChangeCheckbox(1, checked)}
 							className="checkbox-control-panel__input"
 						/>
-						Show "End Time Date" ?
+						Show "{COLUMN_TITLES[1]}" column ?
 					</label>
 
 					<input
@@ -87,17 +65,16 @@ export const CheckboxControlPanel = () => {
 						value={columnsWidth[1]}
 						onChange={({ target: { value } }) => handleChangeWidth(1, value)}
 					></input>
-
 				</div>
 
 				<div className="checkbox-control-panel__checkbox">
 					<label className="checkbox-control-panel__label">
 						<input type="checkbox"
 							checked={checkboxControl[2]}
-							onChange={onChangeDescription}
+							onChange={({ target: { checked } }) => handleChangeCheckbox(2, checked)}
 							className="checkbox-control-panel__input"
 						/>
-						Show "Description" ?
+						Show "{COLUMN_TITLES[2]}" column ?
 					</label>
 
 					<input
@@ -105,17 +82,16 @@ export const CheckboxControlPanel = () => {
 						value={columnsWidth[2]}
 						onChange={({ target: { value } }) => handleChangeWidth(2, value)}
 					></input>
-
 				</div>
 
 				<div className="checkbox-control-panel__checkbox">
 					<label className="checkbox-control-panel__label">
 						<input type="checkbox"
 							checked={checkboxControl[3]}
-							onChange={onChangeDevice}
+							onChange={({ target: { checked } }) => handleChangeCheckbox(3, checked)}
 							className="checkbox-control-panel__input"
 						/>
-						Show "Device" ?
+						Show "{COLUMN_TITLES[3]}" column ?
 					</label>
 
 					<input
@@ -123,17 +99,16 @@ export const CheckboxControlPanel = () => {
 						value={columnsWidth[3]}
 						onChange={({ target: { value } }) => handleChangeWidth(3, value)}
 					></input>
-
 				</div>
 
 				<div className="checkbox-control-panel__checkbox">
 					<label className="checkbox-control-panel__label">
 						<input type="checkbox"
 							checked={checkboxControl[4]}
-							onChange={onChangeZoneOfDevice}
+							onChange={({ target: { checked } }) => handleChangeCheckbox(4, checked)}
 							className="checkbox-control-panel__input"
 						/>
-						Show "Zone Of Device" ?
+						Show "{COLUMN_TITLES[4]}" column ?
 					</label>
 
 					<input
@@ -141,17 +116,16 @@ export const CheckboxControlPanel = () => {
 						value={columnsWidth[4]}
 						onChange={({ target: { value } }) => handleChangeWidth(4, value)}
 					></input>
-
 				</div>
 
 				<div className="checkbox-control-panel__checkbox">
 					<label className="checkbox-control-panel__label">
 						<input type="checkbox"
 							checked={checkboxControl[5]}
-							onChange={onChangeColorCode}
+							onChange={({ target: { checked } }) => handleChangeCheckbox(5, checked)}
 							className="checkbox-control-panel__input"
 						/>
-						Show "Color Code" ?
+						Show "{COLUMN_TITLES[5]}" column ?
 					</label>
 
 					<input
@@ -159,17 +133,16 @@ export const CheckboxControlPanel = () => {
 						value={columnsWidth[5]}
 						onChange={({ target: { value } }) => handleChangeWidth(5, value)}
 					></input>
-
 				</div>
 
 				<div className="checkbox-control-panel__checkbox">
 					<label className="checkbox-control-panel__label">
 						<input type="checkbox"
 							checked={checkboxControl[6]}
-							onChange={onChangeActionToDo}
+							onChange={({ target: { checked } }) => handleChangeCheckbox(6, checked)}
 							className="checkbox-control-panel__input"
 						/>
-						Show "Action To Do" ?
+						Show "{COLUMN_TITLES[6]}" column ?
 					</label>
 
 					<input
@@ -177,10 +150,32 @@ export const CheckboxControlPanel = () => {
 						value={columnsWidth[6]}
 						onChange={({ target: { value } }) => handleChangeWidth(6, value)}
 					></input>
-
 				</div>
 
-			</form>
+			{/* {!!columnsWidth.length &&
+				<form className="checkbox-control-form" onSubmit={onSubmit}>
+					{
+						columnsWidth.map(index => (
+							<div className="checkbox-control-panel__checkbox">
+								<label className="checkbox-control-panel__label">
+									<input type="checkbox"
+										checked={checkboxControl[index]}
+										onChange={({ target: { checked } }) => handleChangeCheckbox(index, checked)}
+										className="checkbox-control-panel__input"
+									/>
+									Show "{COLUMN_TITLES[index]}" column ?
+								</label>
+
+								<input
+									type="text"
+									value={columnsWidth[index]}
+									onChange={({ target: { value } }) => handleChangeWidth(index, value)}
+								></input>
+							</div>
+						))
+					}
+				</form>
+			} */}
 		</div>
 	);
 }

@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 
-const NUMBER_OF_ROWS_ON_PAGE = 20;
+import { NUMBER_OF_ROWS_ON_PAGE } from '../Utils/Constants';
 
 export function pageInfoGeneration(pageNumber) {
 	const resultsArray = [];
@@ -35,10 +35,5 @@ export function pageInfoGeneration(pageNumber) {
 		})
 	}
 
-	// console.log(resultsArray);
 	return resultsArray;
 }
-
-// export let eventsData = {
-// 	events: pageInfoGeneration(22),
-// };
