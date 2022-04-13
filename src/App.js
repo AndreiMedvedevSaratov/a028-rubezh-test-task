@@ -6,32 +6,30 @@ import PaginationControl from './Components/PaginationControl/PaginationControl'
 
 import './App.scss';
 
-// import { useSelector, useDispatch } from 'react-redux';
-// import { setStateFromLocalStorage } from './Store/Events';
+import { useSelector, useDispatch } from 'react-redux';
+import { setStateFromLocalStorage, setCurrentPage } from './Store/Events';
 
 
 function App() {
-  // const dispatch = useDispatch();
-  // const stateToLocalStorage = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const stateToLocalStorage = useSelector((state) => state);
 
-  // console.log(stateToLocalStorage);
+  window.onbeforeunload = () => {
+    localStorage.setItem('rubezh_state', JSON.stringify({
+      sortOptions: stateToLocalStorage.events.sortOptions,
+      checkboxControl: stateToLocalStorage.events.checkboxControl,
+      columnsWidth: stateToLocalStorage.events.columnsWidth,
+      currentPage: stateToLocalStorage.events.currentPage,
+    }));
+  };
 
-  // window.onbeforeunload = () => {
-  //   localStorage.setItem('rubezh_state', JSON.stringify({
-  //     sortOptions: stateToLocalStorage.sortOptions,
-  //     checkboxControl: stateToLocalStorage.checkboxControl,
-  //     columnsWidth: stateToLocalStorage.columnsWidth,
-  //     currentPage: stateToLocalStorage.currentPage,
-  //   }));
-  // };
-
-  // useEffect(() => {
-  //   if (localStorage.getItem('rubezh_state')) {
-  //     let initialStateData = JSON.parse(localStorage.getItem('rubezh_state'));
-  //     console.log(initialStateData);
-  //     dispatch(setStateFromLocalStorage(initialStateData));
-  //   }
-  // }, [dispatch]);
+  useEffect(() => {
+    if (localStorage.getItem('rubezh_state')) {
+      let initialStateData = JSON.parse(localStorage.getItem('rubezh_state'));
+      dispatch(setStateFromLocalStorage(initialStateData));
+      dispatch(setCurrentPage(initialStateData.currentPage));
+    }
+  }, [dispatch]);
 
   return (
     <div className="app">
