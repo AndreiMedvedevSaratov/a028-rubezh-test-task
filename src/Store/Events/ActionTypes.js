@@ -6,5 +6,7 @@ export const eventsActionTypes = {
     setCurrentPage: 'SET_CURRENT_PAGE',
     toggleColumnVisibility: 'TOGGLE_COLUMN_VISIBILITY',
     changeColumnWidth: 'CHANGE_COLUMN_WIDTH',
-    toggleSelectRowById: 'TOGGLE_SELECT_ROW_BY_ID'
+    toggleSelectRowById: 'TOGGLE_SELECT_ROW_BY_ID',
+
+    setStateFromLocalStorage: 'SET_STATE_FROM_LOCAL_STORAGE'
 }

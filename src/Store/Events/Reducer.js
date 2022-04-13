@@ -72,6 +72,22 @@ const reducerMapping = {
             selectedRows: tempSelectedRows
         };
     },
+
+    [eventsActionTypes.setStateFromLocalStorage]: (state, tempState) => {
+        return {
+            ...state,
+            sortOptions: tempState.sortOptions,
+            checkboxControl: tempState.checkboxControl,
+            columnsWidth: tempState.columnsWidth,
+            currentPage: tempState.currentPage,
+        };
+    },
 }
 
-export const events = (state = initialState, action) => reducerMapping[action.type] ? reducerMapping[action.type](state, action.payload) : state;
+export const events = (state = initialState, action) => {
+    if (reducerMapping[action.type]) {
+        return reducerMapping[action.type](state, action.payload)
+    } else {
+        return state;
+    }
+}

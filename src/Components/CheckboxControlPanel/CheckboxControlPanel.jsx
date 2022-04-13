@@ -44,6 +44,7 @@ export const CheckboxControlPanel = () => {
 					</label>
 
 					<input
+						className="checkbox-control-panel__width-input"
 						type="text"
 						value={columnsWidth[0]}
 						onChange={({ target: { value } }) => handleChangeWidth(0, value)}
@@ -61,6 +62,7 @@ export const CheckboxControlPanel = () => {
 					</label>
 
 					<input
+						className="checkbox-control-panel__width-input"
 						type="text"
 						value={columnsWidth[1]}
 						onChange={({ target: { value } }) => handleChangeWidth(1, value)}
@@ -78,6 +80,7 @@ export const CheckboxControlPanel = () => {
 					</label>
 
 					<input
+						className="checkbox-control-panel__width-input"
 						type="text"
 						value={columnsWidth[2]}
 						onChange={({ target: { value } }) => handleChangeWidth(2, value)}
@@ -95,6 +98,7 @@ export const CheckboxControlPanel = () => {
 					</label>
 
 					<input
+						className="checkbox-control-panel__width-input"
 						type="text"
 						value={columnsWidth[3]}
 						onChange={({ target: { value } }) => handleChangeWidth(3, value)}
@@ -112,6 +116,7 @@ export const CheckboxControlPanel = () => {
 					</label>
 
 					<input
+						className="checkbox-control-panel__width-input"
 						type="text"
 						value={columnsWidth[4]}
 						onChange={({ target: { value } }) => handleChangeWidth(4, value)}
@@ -129,6 +134,7 @@ export const CheckboxControlPanel = () => {
 					</label>
 
 					<input
+						className="checkbox-control-panel__width-input"
 						type="text"
 						value={columnsWidth[5]}
 						onChange={({ target: { value } }) => handleChangeWidth(5, value)}
@@ -146,6 +152,7 @@ export const CheckboxControlPanel = () => {
 					</label>
 
 					<input
+						className="checkbox-control-panel__width-input"
 						type="text"
 						value={columnsWidth[6]}
 						onChange={({ target: { value } }) => handleChangeWidth(6, value)}
@@ -167,6 +174,7 @@ export const CheckboxControlPanel = () => {
 								</label>
 
 								<input
+									className="checkbox-control-panel__width-input"
 									type="text"
 									value={columnsWidth[index]}
 									onChange={({ target: { value } }) => handleChangeWidth(index, value)}

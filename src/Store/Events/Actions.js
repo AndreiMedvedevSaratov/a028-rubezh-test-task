@@ -48,3 +48,8 @@ export const toggleSelectRowById = (id) => ({
     type: eventsActionTypes.toggleSelectRowById,
     payload: id
 });
+
+export const setStateFromLocalStorage = (tempState) => ({
+    type: eventsActionTypes.setStateFromLocalStorage,
+    payload: tempState,
+})
